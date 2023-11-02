@@ -1,0 +1,49 @@
+# Создаем пустой телефонный справочник
+phonebook = {}
+
+# Функция для добавления контакта
+def add_contact():
+    name = input("Введите имя контакта: ")
+    number = input("Введите номер телефона: ")
+    phonebook[name] = number
+    print(f"Контакт {name} добавлен в справочник.")
+
+# Функция для изменения контакта
+def update_contact():
+    name = input("Введите имя контакта, который нужно изменить: ")
+    if name in phonebook:
+        new_number = input("Введите новый номер телефона: ")
+        phonebook[name] = new_number
+        print(f"Контакт {name} обновлен.")
+    else:
+        print(f"Контакт {name} не найден в справочнике.")
+
+# Функция для удаления контакта
+def delete_contact():
+    name = input("Введите имя контакта, который нужно удалить: ")
+    if name in phonebook:
+        del phonebook[name]
+        print(f"Контакт {name} удален.")
+    else:
+        print(f"Контакт {name} не найден в справочнике.")
+
+# Главный цикл программы
+while True:
+    print("\n1. Добавить контакт")
+    print("2. Изменить контакт")
+    print("3. Удалить контакт")
+    print("4. Выйти")
+
+    choice = input("Выберите действие (1/2/3/4): ")
+
+    if choice == "1":
+        add_contact()
+    elif choice == "2":
+        update_contact()
+    elif choice == "3":
+        delete_contact()
+    elif choice == "4":
+        print("Выход из программы.")
+        break
+    else:
+        print("Неверный выбор. Пожалуйста, выберите 1, 2, 3 или 4.")
